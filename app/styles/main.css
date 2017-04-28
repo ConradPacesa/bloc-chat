@@ -1,0 +1,28 @@
+.sidebar {
+    background-color: rgb(212, 212, 214);
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-left: 1rem;
+}
+
+.chat-title {
+    color: rgb(49, 49, 51);
+}
+
+.rooms {
+    color: rgb(136, 136, 140);
+
+}
+
+.rooms-links {
+    padding-bottom: 0.5rem;
+}
+
+.rooms :hover {
+    cursor: pointer;
+}

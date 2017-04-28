@@ -3,9 +3,21 @@
     <head lang="en">
         <meta charset="UTF-8">
         <title>Bloc Chat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+        <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
         <link rel="stylesheet" href="/styles/main.css">
     </head>
     <body>
+        <nav class="sidebar" ng-controller="NavCtrl as nav">
+            <h1 class="chat-title">Bloc Chat</h1>
+            <table  class="rooms">
+                <tr ng-repeat="roomName in nav.room.all">
+                    <td class="rooms-links">{{roomName.$value}}</td>
+                </tr>
+            </table>
+        </nav>
 
         <ui-view></ui-view>
 
@@ -28,6 +40,8 @@
           </script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
           <script src="/scripts/app.js"></script>
+          <script src="/scripts/controllers/NavCtrl.js"></script>
           <script src="/scripts/controllers/LandingCtrl.js"></script>
+          <script src="/scripts/services/Room.js"></script>
     </body>
 </html>
