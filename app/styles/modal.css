@@ -1,0 +1,42 @@
+.my-modal {
+    background-color: rgb(212, 212, 214);
+}
+
+.modal-content {
+    width: 298px;
+}
+
+.my-modal .modal-header {
+    border: none;
+    padding-top: 3rem;
+    padding-bottom: 0rem;
+}
+
+.my-modal .modal-body {
+    padding-top: 1rem;
+    color: rgb(136, 136, 140);
+}
+
+.my-modal .modal-footer {
+    border: none;
+}
+
+.input {
+    width: 25rem;
+    height: 3rem;
+    color: black;
+}
+
+.my-modal .btn {
+    background-color: grey;
+    border: none;
+    border-radius: 0px;
+    float: left;
+    width: 12rem;
+    margin-top: 1rem;
+}
+
+.my-modal .btn-warning {
+    background-color: rgb(224, 225, 226);
+    color: rgb(136, 136, 140);
+}
