@@ -14,7 +14,7 @@
     <body>
         <nav class="sidebar" ng-controller="NavCtrl as nav">
             <h1 class="chat-title">Bloc Chat</h1>
-            <button type="button" ng-controller="ModalCtrl as modal" class="btn btn-default" ng-click="modal.open('sm')">New Room</button>
+            <button type="button" class="btn btn-default" ng-click="nav.open('sm')">New Room</button>
             <table  class="rooms">
                 <tr ng-repeat="roomName in nav.room.all">
                     <td class="rooms-links">{{roomName.$value}}</td>
@@ -47,7 +47,7 @@
           <script src="/scripts/app.js"></script>
           <script src="/scripts/controllers/NavCtrl.js"></script>
           <script src="/scripts/controllers/LandingCtrl.js"></script>
-          <script src="/scripts/controllers/ModalCtrl.js"></script>
+          <script src="/scripts/controllers/RoomAddModalCtrl.js"></script>
           <script src="/scripts/services/Room.js"></script>
           <script src="/scripts/services/RoomAdd.js"></script>
     </body>
