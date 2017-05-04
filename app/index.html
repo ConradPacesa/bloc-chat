@@ -16,8 +16,8 @@
             <h1 class="chat-title">Bloc Chat</h1>
             <button type="button" class="btn btn-default" ng-click="nav.open('sm')">New Room</button>
             <table  class="rooms">
-                <tr ng-repeat="roomName in nav.room.all">
-                    <td class="rooms-links">{{roomName.$value}}</td>
+                <tr ng-repeat="room in nav.room.all">
+                    <td class="rooms-links">{{room.roomName}}</td>
                 </tr>
             </table>
         </nav>
