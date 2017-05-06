@@ -40,3 +40,7 @@
     background-color: rgb(224, 225, 226);
     color: rgb(136, 136, 140);
 }
+
+.my-modal .set-user {
+    width: 25rem;
+}
