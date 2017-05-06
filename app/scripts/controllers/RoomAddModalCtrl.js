@@ -1,4 +1,5 @@
 (function() {
+    RoomAddModalCtrl.$inject = ['$log', '$uibModalInstance', 'Room', 'RoomAdd'];
     function RoomAddModalCtrl($log, $uibModalInstance, Room, RoomAdd) {
         var $ctrl = this;
 
@@ -9,5 +10,5 @@
 
     angular
         .module('blocChat')
-        .controller('RoomAddModalCtrl', ['$log', '$uibModalInstance', 'Room', 'RoomAdd', RoomAddModalCtrl])
+        .controller('RoomAddModalCtrl', RoomAddModalCtrl);
 })();

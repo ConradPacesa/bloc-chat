@@ -1,8 +1,11 @@
 (function(NavCtrl) {
-    function NavCtrl($uibModal, $log, $document, Room, RoomAdd) {
+    NavCtrl.$inject = ['$uibModal', '$log', '$rootScope', '$scope', '$firebaseArray', '$document', 'Room', 'RoomAdd', 'Message'];
+    function NavCtrl($uibModal, $log, $rootScope, $scope, $firebaseArray, $document, Room, RoomAdd, Message) {
         var $ctrl = this;
         $ctrl.roomAdd = RoomAdd;
         $ctrl.room = Room;
+        $scope.setRoom = setRoom;
+        $rootScope.activeRoom = null;
 
         $ctrl.animationsEnabled = true;
 
@@ -30,9 +33,14 @@
               $log.info('Modal dismissed at: ' + new Date());
             });
         };
+
+        function setRoom (input) {
+            $rootScope.activeRoom = input;
+            Message.getRoomById($rootScope.activeRoom.$id);
+        }
     }
 
     angular
         .module('blocChat')
-        .controller('NavCtrl', ['$uibModal', '$log', '$document', 'Room', 'RoomAdd', NavCtrl])
+        .controller('NavCtrl', NavCtrl);
 })();

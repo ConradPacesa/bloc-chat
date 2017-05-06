@@ -9,8 +9,13 @@
         $stateProvider
             .state('landing', {
                 url:'/',
-                controller: 'LandingCtrl as landing',
+                controller: 'NavCtrl as nav',
                 templateUrl: '/templates/landing.html'
+            })
+            .state('messages', {
+                url:'/messages',
+                controller: 'MessageCtrl as messages',
+                templateUrl: '/templates/messages.html'
             });
     }
 

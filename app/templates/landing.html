@@ -1,1 +1,13 @@
-
+<div class="messages">
+    <h4 class="room-title">{{activeRoom.roomName}}</h4>
+    <table class="messages-list">
+        <tr class="messages-content" ng-repeat="message in activeMessages">
+            <td class="table-rows">
+                <span class="name">{{message.username}}</span>
+                <span class="time-stamp">{{message.sentAt}}</span>
+            </br>
+                <span class="content">{{message.content}}</span>
+            </td>
+        </tr>
+    </table>
+</div>

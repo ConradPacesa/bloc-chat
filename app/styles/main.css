@@ -16,7 +16,7 @@
     display: inline-block;;
 }
 
-.rooms {
+.rooms a {
     color: rgb(136, 136, 140);
     margin-left: 0.5rem;
 }

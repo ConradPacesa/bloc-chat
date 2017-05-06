@@ -1,0 +1,44 @@
+.messages {
+    position: fixed;
+    left: 20%;
+    width: 40%;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.room-title {
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+.messages-list {
+    margin-left: 0rem;
+    margin-top: 2rem;
+    width: 200%;
+    position: relative;
+}
+
+.messages-content  td {
+    height: 3rem;
+    vertical-align: middle;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.messages-list tr:nth-child(odd) {
+    background-color: rgb(232, 240, 255);
+}
+
+
+.name {
+    font-weight: bold;
+}
+
+.time-stamp {
+    float: right;
+    font-size: 1.25rem;
+    font-weight: lighter;
+    color: grey;
+    padding-right: 2rem;
+}

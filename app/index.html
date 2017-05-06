@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
         <link rel="stylesheet" type="text/css" href="/styles/main.css">
         <link rel="stylesheet" type="text/css" href="/styles/modal.css">
+        <link rel="stylesheet" type="text/css" href="/styles/landing.css">
     </head>
     <body>
         <nav class="sidebar" ng-controller="NavCtrl as nav">
@@ -17,7 +18,9 @@
             <button type="button" class="btn btn-default" ng-click="nav.open('sm')">New Room</button>
             <table  class="rooms">
                 <tr ng-repeat="room in nav.room.all">
-                    <td class="rooms-links">{{room.roomName}}</td>
+                    <td class="rooms-links">
+                        <a class="room-button" ng-click="setRoom(room)">{{room.roomName}}</a>
+                    </td>
                 </tr>
             </table>
         </nav>
@@ -48,7 +51,9 @@
           <script src="/scripts/controllers/NavCtrl.js"></script>
           <script src="/scripts/controllers/LandingCtrl.js"></script>
           <script src="/scripts/controllers/RoomAddModalCtrl.js"></script>
+          <script src="/scripts/controllers/MessageCtrl.js"></script>
           <script src="/scripts/services/Room.js"></script>
           <script src="/scripts/services/RoomAdd.js"></script>
+          <script src="/scripts/services/Message.js"></script>
     </body>
 </html>
