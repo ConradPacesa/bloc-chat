@@ -1,13 +1,19 @@
 <div class="messages">
     <h4 class="room-title">{{activeRoom.roomName}}</h4>
-    <table class="messages-list">
-        <tr class="messages-content" ng-repeat="message in activeMessages">
-            <td class="table-rows">
-                <span class="name">{{message.username}}</span>
-                <span class="time-stamp">{{message.sentAt}}</span>
-            </br>
-                <span class="content">{{message.content}}</span>
-            </td>
-        </tr>
-    </table>
+    <div class="messages-container">
+        <table class="messages-list">
+            <tr class="messages-content" ng-repeat="message in activeMessages">
+                <td class="table-rows">
+                    <span class="name">{{message.username}}</span>
+                    <span class="time-stamp">{{message.sentAt}}</span>
+                </br>
+                    <span class="content">{{message.content}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form class="message-send" ng-submit="sendMessage(inputValue)">
+        <input class="message-input" type="text" placeholder=" Write your message here..." ng-model="inputValue">
+        <button class="send-button" type="submit" ng-click="$setPristine()">Send</button>
+    </form>
 </div>

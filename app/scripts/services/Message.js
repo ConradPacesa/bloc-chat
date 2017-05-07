@@ -1,6 +1,6 @@
 (function() {
-    Message.$inject = ['$rootScope', '$log', '$firebaseArray'];
-    function Message($rootScope, $log, $firebaseArray) {
+    Message.$inject = ['$rootScope', '$log', '$firebaseArray', '$cookies'];
+    function Message($rootScope, $log, $firebaseArray, $cookies) {
         var Message = {};
         var ref = firebase.database().ref().child("messages");
         var messages = $firebaseArray(ref);
@@ -10,6 +10,17 @@
                 $rootScope.activeMessages = snapshot.val();
             })
         };
+
+        Message.send = function(newMessage) {
+            messages.$add({roomId: $rootScope.activeRoom.$id, content: newMessage,
+                username: $cookies.get('blocChatCurrentUser'),
+                sentAt: Date()}).then(function(ref) {
+                var id = ref.key;
+                console.log('Added record with id:' + id);
+                messages.$indexFor(id);
+            });
+        };
+
         return Message;
     }
 

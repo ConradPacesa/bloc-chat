@@ -12,11 +12,6 @@
                 controller: 'NavCtrl as nav',
                 templateUrl: '/templates/landing.html'
             })
-            .state('messages', {
-                url:'/messages',
-                controller: 'MessageCtrl as messages',
-                templateUrl: '/templates/messages.html'
-            });
     }
 
     angular

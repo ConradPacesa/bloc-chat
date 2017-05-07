@@ -38,6 +38,12 @@
             $rootScope.activeRoom = input;
             Message.getRoomById($rootScope.activeRoom.$id);
         }
+
+        $scope.sendMessage = function(inputValue) {
+            Message.send(inputValue);
+            $scope.inputValue = null;
+        }
+
     }
 
     angular
