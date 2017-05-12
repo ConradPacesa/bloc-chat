@@ -1,11 +1,12 @@
 (function(NavCtrl) {
-    NavCtrl.$inject = ['$uibModal', '$log', '$rootScope', '$scope', '$firebaseArray', '$document', 'Room', 'RoomAdd', 'Message'];
-    function NavCtrl($uibModal, $log, $rootScope, $scope, $firebaseArray, $document, Room, RoomAdd, Message) {
+    NavCtrl.$inject = ['$uibModal', '$log', '$rootScope', '$scope', '$firebaseArray', '$document', 'Room', 'RoomAdd', 'Message', 'Authentication'];
+    function NavCtrl($uibModal, $log, $rootScope, $scope, $firebaseArray, $document, Room, RoomAdd, Message, Authentication) {
         var $ctrl = this;
         $ctrl.roomAdd = RoomAdd;
         $ctrl.room = Room;
         $scope.setRoom = setRoom;
         $rootScope.activeRoom = null;
+        $rootScope.admin = null;
 
         $ctrl.animationsEnabled = true;
 
@@ -43,7 +44,6 @@
             Message.send(inputValue);
             $scope.inputValue = null;
         }
-
     }
 
     angular
