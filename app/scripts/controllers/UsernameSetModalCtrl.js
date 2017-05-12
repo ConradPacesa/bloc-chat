@@ -1,16 +1,14 @@
 (function() {
-    UsernameSetModalCtrl.$inject = ['$log', '$uibModalInstance', '$cookies'];
-    function UsernameSetModalCtrl($log, $uibModalInstance, $cookies) {
+    UsernameSetModalCtrl.$inject = ['$log', '$uibModalInstance', '$cookies', 'Authentication'];
+    function UsernameSetModalCtrl($log, $uibModalInstance, $cookies, Authentication) {
         var $ctrl = this;
 
-        $ctrl.setUser = function(inputValue) {
-            if (inputValue !== undefined && inputValue !== "") {
-                $cookies.put('blocChatCurrentUser', inputValue);
-                $log.info($cookies.get('blocChatCurrentUser'));
-                $uibModalInstance.close(inputValue);
-            }
+        $ctrl.signIn = function() {
+            Authentication.signIn().then(function(result) {
+                $cookies.put('blocChatCurrentUser', result.providerData[0].displayName);
+                $uibModalInstance.close(result);
+            });
         }
-
     }
 
     angular

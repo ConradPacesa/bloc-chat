@@ -1,7 +1,7 @@
 (function() {
-    function BlocChatCookies($log, $cookies, $uibModal, BlocChatCookies) {
+    function BlocChatCookies($rootScope, $log, $cookies, $uibModal, BlocChatCookies) {
         var $ctrl = this;
-        var currentUser = $cookies.get('blocChatCurrentUser');
+        var currentUser = $rootScope.authUser;
         if (!currentUser || currentUser === '') {
 
             $uibModal.open({
@@ -25,5 +25,5 @@
 
     angular
         .module('blocChat')
-        .run(['$log', '$cookies', '$uibModal', BlocChatCookies]);
+        .run(['$rootScope','$log', '$cookies', '$uibModal', BlocChatCookies]);
 })();
