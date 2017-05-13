@@ -3,9 +3,15 @@
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
 
-        return {
-            all: rooms
-        };
+        Room.getRooms = getRooms;
+
+        function getRooms(type) {
+            return ref.orderByChild('roomType').equalTo(type).once('value').then(function(snapshot) {
+                return snapshot.val();
+            });
+        }
+
+        return Room;
     }
 
     angular

@@ -3,10 +3,19 @@
     function NavCtrl($uibModal, $log, $rootScope, $scope, $firebaseArray, $document, Room, RoomAdd, Message, Authentication) {
         var $ctrl = this;
         $ctrl.roomAdd = RoomAdd;
-        $ctrl.room = Room;
+        //$ctrl.room = Room;
         $scope.setRoom = setRoom;
         $rootScope.activeRoom = null;
         $rootScope.admin = null;
+
+        $ctrl.room = Room.getRooms('room');
+        $ctrl.adminRooms = Room.getRooms('admin');
+
+        function check() {
+            console.log($ctrl.room);
+        }
+
+        check();
 
         $ctrl.animationsEnabled = true;
 
