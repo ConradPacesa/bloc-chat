@@ -12,8 +12,8 @@
             </tr>
         </table>
     </div>
-    <form class="message-send" ng-submit="sendMessage(inputValue)">
+    <form class="message-send" ng-submit="nav.sendMessage(inputValue)">
         <input class="message-input" type="text" placeholder=" Write your message here..." ng-model="inputValue">
-        <button class="send-button" type="submit" ng-click="$setPristine()">Send</button>
+        <button class="send-button" type="submit">Send</button>
     </form>
 </div>

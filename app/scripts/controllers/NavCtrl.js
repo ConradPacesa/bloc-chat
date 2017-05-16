@@ -2,21 +2,12 @@
     NavCtrl.$inject = ['$uibModal', '$log', '$rootScope', '$scope', '$firebaseArray', '$document', 'Room', 'RoomAdd', 'Message', 'Authentication'];
     function NavCtrl($uibModal, $log, $rootScope, $scope, $firebaseArray, $document, Room, RoomAdd, Message, Authentication) {
         var $ctrl = this;
+        $ctrl.title = "Bloc Chat";
         $ctrl.roomAdd = RoomAdd;
-        //$ctrl.room = Room;
-        $scope.setRoom = setRoom;
+        $ctrl.room = Room;
+        $ctrl.setRoom = setRoom;
         $rootScope.activeRoom = null;
         $rootScope.admin = null;
-
-        $ctrl.room = Room.getRooms('room');
-        $ctrl.adminRooms = Room.getRooms('admin');
-
-        function check() {
-            console.log($ctrl.room);
-        }
-
-        check();
-
         $ctrl.animationsEnabled = true;
 
         $ctrl.open = function(size, parentSelector) {
@@ -45,11 +36,15 @@
         };
 
         function setRoom (input) {
-            $rootScope.activeRoom = input;
-            Message.getRoomById($rootScope.activeRoom.$id);
-        }
+            if (input.roomType === 'admin' && $rootScope.admin === null) {
+                alert("You do not have permission to enter that room!");
+            } else {
+                $rootScope.activeRoom = input;
+                Message.getRoomById($rootScope.activeRoom.$id);
+            }
+        };
 
-        $scope.sendMessage = function(inputValue) {
+        $ctrl.sendMessage = function(inputValue) {
             Message.send(inputValue);
             $scope.inputValue = null;
         }

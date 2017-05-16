@@ -14,21 +14,15 @@
     </head>
     <body>
         <nav class="sidebar" ng-controller="NavCtrl as nav">
-            <h1 class="chat-title">{{nav | json}}</h1>
+            <h1 class="chat-title" ng-bind="nav.title"></h1>
             <button type="button" class="btn btn-default" ng-click="nav.open('sm')">New Room</button>
             <table  class="rooms">
-                <tr ng-repeat="room in nav.room">
+                <tr ng-repeat="room in nav.room.all">
                     <td class="rooms-links">
-                        <a class="room-button" ng-click="setRoom(room)">{{room | json}}</a>
+                        <a class="room-button" ng-click="nav.setRoom(room)">{{room.roomName}}</a>
                     </td>
                 </tr>
             </table>
-            <div class="admin" ng-if="admin">
-                <h2 class="admin-title">Admin Rooms</h2>
-                <table class="admin-rooms">
-                    <tr ng-repeat="room in nav.adminRooms">
-                </table>
-            </div>
         </nav>
 
         <ui-view></ui-view>

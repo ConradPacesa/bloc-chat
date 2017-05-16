@@ -1,20 +1,15 @@
 (function() {
-    function Room($firebaseArray) {
+    Room.$inject = ['$rootScope', 'Authentication', '$firebaseArray'];
+    function Room($rootScope, Authentication, $firebaseArray) {
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
 
-        Room.getRooms = getRooms;
-
-        function getRooms(type) {
-            return ref.orderByChild('roomType').equalTo(type).once('value').then(function(snapshot) {
-                return snapshot.val();
-            });
-        }
-
-        return Room;
+        return {
+            all: rooms
+        };
     }
 
     angular
         .module('blocChat')
-        .factory('Room', ['$firebaseArray', Room])
+        .factory('Room', Room)
 })();
